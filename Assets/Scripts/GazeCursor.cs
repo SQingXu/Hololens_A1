@@ -11,20 +11,21 @@ public class GazeCursor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        var headPosition = Camera.main.transform.position;
-        var gazeDirection = Camera.main.transform.forward;
+        //var headPosition = Camera.main.transform.position;
+        //var gazeDirection = Camera.main.transform.forward;
+        this.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 1));
+        meshRenderer.enabled = true;
+        //RaycastHit hitInfo;
 
-        RaycastHit hitInfo;
-
-        if (Physics.Raycast(headPosition,gazeDirection,out hitInfo))
-        {
-            meshRenderer.enabled = true;
-            this.transform.position = hitInfo.point;
-            this.transform.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
-        }
-        else
-        {
-            meshRenderer.enabled = false;
-        }
-	}
+        //if (Physics.Raycast(headPosition, gazeDirection, out hitInfo))
+        //{
+        //    meshRenderer.enabled = true;
+        //    this.transform.position = hitInfo.point;
+        //    this.transform.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
+        //}
+        //else
+        //{
+        //    meshRenderer.enabled = false;
+        //}
+    }
 }

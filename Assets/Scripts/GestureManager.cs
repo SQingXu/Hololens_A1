@@ -7,12 +7,21 @@ public class GestureManager : MonoBehaviour {
     public static GestureManager Instance { get; private set; }
     public GameObject selectedObject;
     GestureRecognizer recognizer;
+    public GameObject prefabSphere;
 	// Use this for initialization
 	void Start () {
         Instance = this;
         recognizer = new GestureRecognizer();
         recognizer.TappedEvent += (source, tapTimes, ray) =>
         {
+            Vector3 position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 1));
+            GameObject prefabInstance = Instantiate(prefabSphere, position, transform.rotation);
+            prefabInstance.SetActive(true);
+            Debug.Log(Camera.main.nearClipPlane);
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(position, 1F);
+
+            Debug.Log(position);
             if (selectedObject != null)
             {
                 selectedObject.SendMessageUpwards("OnSelect");
@@ -39,7 +48,6 @@ public class GestureManager : MonoBehaviour {
         }
         if (beforeSelectedObject != selectedObject)
         {
-            Debug.Log("Object Change");
             recognizer.CancelGestures();
             recognizer.StartCapturingGestures();
         }
