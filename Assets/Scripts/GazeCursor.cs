@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class GazeCursor : MonoBehaviour {
     private MeshRenderer meshRenderer;
+    //public GameObject cubeCursorPrefab;
+    //public GameObject sphereCursorPrefab;
 	// Use this for initialization
 	void Start () {
+        //sphereCursorPrefab.SetActive(true);
+        //cubeCursorPrefab.SetActive(false);
         meshRenderer = this.gameObject.GetComponentInChildren<MeshRenderer>();
 	}
 	
@@ -28,4 +32,5 @@ public class GazeCursor : MonoBehaviour {
         //    meshRenderer.enabled = false;
         //}
     }
+
 }
