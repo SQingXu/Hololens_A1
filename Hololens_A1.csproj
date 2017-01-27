@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\DrawingSpheres.cs" />
     <Compile Include="Assets\Scripts\GazeCursor.cs" />
     <Compile Include="Assets\Scripts\GestureManager.cs" />
+    <Compile Include="Assets\Scripts\HandsManager.cs" />
     <Compile Include="Assets\Scripts\Rotation.cs" />
     <Compile Include="Assets\Scripts\SpeechManager.cs" />
   </ItemGroup>

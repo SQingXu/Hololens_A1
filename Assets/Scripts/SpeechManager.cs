@@ -26,6 +26,14 @@ public class SpeechManager : MonoBehaviour {
         {
             this.BroadcastMessage("Clear");
         });
+        keywords.Add("Start", () =>
+        {
+            this.BroadcastMessage("StartMovingObjects");
+        });
+        keywords.Add("Stop", () =>
+        {
+            this.BroadcastMessage("StopMovingObjects");
+        });
         keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += KeywordRecognizer_OnPhraseRecognized;
         keywordRecognizer.Start();
